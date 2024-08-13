@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Про нас - Traveler HUB</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg/1200px-Altja_j%C3%B5gi_Lahemaal.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+    }
+
+    .header {
+        width: 100%;
+        height: 60px;
+        background-color: rgba(128, 128, 128, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        left: 0;
+        backdrop-filter: blur(10px);
+    }
+
+    .profile {
+        display: flex;
+        align-items: center;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #fff;
+        overflow: hidden;
+        margin-right: 10px;
+    }
+
+    .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .nickname {
+        font-size: 1.2em;
+        color: #fff;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .main-buttons {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+    }
+
+    .main-buttons a {
+        margin: 0 10px;
+        padding: 10px 20px;
+        background-color: rgba(255, 255, 255, 0);
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 5px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .main-buttons a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .language-switch {
+        cursor: pointer;
+        color: #fff;
+        font-size: 1.2em;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .content {
+        padding-top: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: calc(100vh - 60px);
+        text-align: center;
+    }
+
+    .content-inner {
+        padding: 20px;
+        max-width: 800px;
+    }
+
+    .content h1 {
+        font-size: 3.5em;
+        text-align: center;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .content p {
+        font-size: 1.8em;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        margin: 20px 0;
+    }
+
+    .THUB-text {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        font-size: 8em;
+        color: #ffffff;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 8px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div class="profile">
+        <div class="avatar">
+            <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar">
+        </div>
+        <div class="nickname" data-en="Nickname" data-ua="Никнейм">Никнейм</div>
+    </div>
+    <div class="main-buttons">
+        <a href="index.html" data-en="Home" data-ua="Головна">Головна</a>
+        <a href="aboutus.html" data-en="About Us" data-ua="Про нас">Про нас</a>
+        <a href="photogalerry.html" data-en="Photo Gallery" data-ua="Фотогалерея">Фотогалерея</a>
+        <a href="putivnik.html" data-en="Guide" data-ua="Путівник">Путівник</a>
+        <a href="forums.html" data-en="Forums" data-ua="Форуми">Форуми</a>
+        <a href="blogs.html" data-en="Checklists & Blogs" data-ua="Чек-листи та блоги">Чек-листи та блоги</a>
+    </div>
+    <div class="language-switch" onclick="toggleLanguage()">EN | UA</div>
+</div>
+
+<div class="content">
+    <div class="content-inner">
+        <h1 data-en="About Us" data-ua="Про нас">Про нас</h1>
+        <p data-en="Welcome to Traveler HUB! We are a community of travelers who have come together to share our stories, photos, and tips. Our goal is to create a place where everyone can find useful information and inspiration for their travels." data-ua="Ласкаво просимо на Traveler HUB! Ми - спільнота мандрівників, які об'єдналися для того, щоб ділитися своїми історіями, фотографіями та порадами. Наша мета - створити місце, де кожен може знайти корисну інформацію та натхнення для своїх подорожей.">Ласкаво просимо на Traveler HUB! Ми - спільнота мандрівників, які об'єдналися для того, щоб ділитися своїми історіями, фотографіями та порадами. Наша мета - створити місце, де кожен може знайти корисну інформацію та натхнення для своїх подорожей.</p>
+        <p data-en="Our website offers a variety of resources for travelers: guides, photo galleries, forums, and blogs. We strive to make your travels unforgettable and safe." data-ua="Наш сайт пропонує різноманітні ресурси для мандрівників: путівники, фотогалереї, форуми та блоги. Ми прагнемо зробити ваші подорожі незабутніми та безпечними.">Наш сайт пропонує різноманітні ресурси для мандрівників: путівники, фотогалереї, форуми та блоги. Ми прагнемо зробити ваші подорожі незабутніми та безпечними.</p>
+        <p data-en="Join us and share your experience with other travelers!" data-ua="Приєднуйтесь до нас і поділіться своїм досвідом з іншими мандрівниками!">Приєднуйтесь до нас і поділіться своїм досвідом з іншими мандрівниками!</p>
+    </div>
+</div>
+
+<div class="THUB-text" data-en="Traveler HUB" data-ua="Traveler HUB">Traveler HUB</div>
+
+<script>
+function toggleLanguage() {
+    var langElements = document.querySelectorAll('[data-en], [data-ua]');
+    var langSwitch = document.querySelector('.language-switch');
+
+    if (langSwitch.textContent === 'EN | UA') {
+        langSwitch.textContent = 'UA | EN';
+        langElements.forEach(function(el) {
+            el.textContent = el.getAttribute('data-en');
+        });
+        document.documentElement.lang = 'en';
+    } else {
+        langSwitch.textContent = 'EN | UA';
+        langElements.forEach(function(el) {
+            el.textContent = el.getAttribute('data-ua');
+        });
+        document.documentElement.lang = 'ua';
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traveler HUB Фотогалерея</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg/1200px-Altja_j%C3%B5gi_Lahemaal.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+    }
+
+    .header {
+        width: 100%;
+        height: 60px;
+        background-color: rgba(128, 128, 128, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        left: 0;
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+    }
+
+    .profile {
+        display: flex;
+        align-items: center;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #fff;
+        overflow: hidden;
+        margin-right: 10px;
+    }
+
+    .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .nickname {
+        font-size: 1.2em;
+        color: #fff;
+    }
+
+    .main-buttons {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+    }
+
+    .main-buttons a {
+        margin: 0 10px;
+        padding: 10px 20px;
+        background-color: rgba(255, 255, 255, 0);
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .main-buttons a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .language-switch {
+        cursor: pointer;
+        color: #fff;
+        font-size: 1.2em;
+    }
+
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 20px;
+        padding: 80px 40px 40px;
+        box-sizing: border-box;
+        justify-items: center;
+    }
+
+    .gallery img {
+        width: auto;
+        height: auto;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    }
+
+    .gallery img:hover {
+        transform: scale(1.1);
+    }
+
+    /* Стилі для модального вікна */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1001;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content {
+        position: relative;
+        margin: auto;
+        max-width: 90%;
+        max-height: 90%;
+    }
+
+    .modal-content img {
+        width: 100%;
+        height: auto;
+    }
+
+    .close {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        color: #fff;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div class="profile">
+        <div class="avatar">
+            <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar">
+        </div>
+        <div class="nickname" data-en="Nickname" data-ua="Нікнейм">Нікнейм</div>
+    </div>
+    <div class="main-buttons">
+        <a href="index.html" data-en="Home" data-ua="Головна">Головна</a>
+        <a href="aboutus.html" data-en="About Us" data-ua="Про нас">Про нас</a>
+        <a href="photogalerry.html" data-en="Photo Gallery" data-ua="Фотогалерея">Фотогалерея</a>
+        <a href="putivnik.html" data-en="Guide" data-ua="Путівник">Путівник</a>
+        <a href="forums.html" data-en="Forums" data-ua="Форуми">Форуми</a>
+        <a href="blogs.html" data-en="Checklists & Blogs" data-ua="Чек-листи та блоги">Чек-листи та блоги</a>
+    </div>
+    <div class="language-switch" onclick="toggleLanguage()">EN | UA</div>
+</div>
+
+<div class="gallery">
+    <img src="https://i0.wp.com/picjumbo.com/wp-content/uploads/beautiful-nature-mountain-scenery-with-flowers-free-photo.jpg?w=2210&quality=70" alt="Nature Image 1" onclick="openModal(this)">
+    <img src="https://i.natgeofe.com/n/726708f7-f79d-47a5-ba03-711449823607/01-balance-of-nature.jpg" alt="Nature Image 2" onclick="openModal(this)">
+    <img src="https://www.pourquoidocteur.fr/media/article/COPY_istock-1317323736-1713703063.jpg" alt="Nature Image 3" onclick="openModal(this)">
+    <img src="https://images.pexels.com/photos/1266810/pexels-photo-1266810.jpeg?cs=srgb&dl=pexels-8moments-1266810.jpg&fm=jpg" alt="Nature Image 4" onclick="openModal(this)">
+    <img src="https://nt.global.ssl.fastly.net/binaries/content/gallery/website/national/library/our-cause/on-the-shore-borrowdale-and-derwent-water-1518851.jpg" alt="Nature Image 5" onclick="openModal(this)">
+    <img src="https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/Zugpsitze_mountain.jpg?crop=0%2C176%2C3008%2C1654&wid=4000&hei=2200&scl=0.752" alt="Nature Image 6" onclick="openModal(this)">
+    <img src="https://media.cntraveller.com/photos/611bf0b8f6bd8f17556db5e4/4:3/w_2664,h_1998,c_limit/gettyimages-1146431497.jpg" alt="Nature Image 7" onclick="openModal(this)">
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/008/062/987/small_2x/travel-to-the-beautiful-colorful-majestic-waterfall-in-national-park-forest-during-autumn-soft-water-of-the-stream-in-the-natural-park-photo.jpg" alt="Nature Image 8" onclick="openModal(this)">
+    <img src="https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/i/c/iceland_waterfall.jpg?crop=0%2C263%2C1600%2C880&wid=4000&hei=2200&scl=0.4" alt="Nature Image 9" onclick="openModal(this)">
+    <img src="https://webneel.com/daily/sites/default/files/images/daily/08-2018/1-nature-photography-spring-season-mumtazshamsee.jpg" alt="Nature Image 10" onclick="openModal(this)">
+    <img src="https://natureconservancy-h.assetsadobe.com/is/image/content/dam/tnc/nature/en/photos/i/c/iceland_waterfall.jpg?crop=0%2C263%2C1600%2C880&wid=4000&hei=2200&scl=0.4" alt="Nature Image 12" onclick="openModal(this)">
+    <img src="https://th-thumbnailer.cdn-si-edu.com/_sWVRSTELwK0-Ave6S4mFpxr1D0=/1000x750/filters:no_upscale()/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer/25MikeReyfman_Waterfall.jpg" alt="Nature Image 14" onclick="openModal(this)">
+    <img src="https://mukachevo.net/uploads/media/images/image/f7/80/f78065ca6a7b414c8bae3fe78d46daf2j1d4mspdtceowbe_image.jpg" alt="Nature Image 15" onclick="openModal(this)">
+    <img src="https://eimg.pravda.com/images/doc/1/0/10ccf7c-1133564575856868.jpg" alt="Nature Image 16" onclick="openModal(this)">
+    <img src="https://kharkov.comments.ua/img/publications/pTeYFtES_gaFUUk57GEguypLRaRExjUj.jpg" alt="Nature Image 17" onclick="openModal(this)">
+    <img src="https://www.equatorial.by/sites/default/files/images/amazonia002_peru.jpg" alt="Nature Image 18" onclick="openModal(this)">
+    <img src="https://d7hftxdivxxvm.cloudfront.net/?quality=80&resize_to=width&src=https%3A%2F%2Fartsy-media-uploads.s3.amazonaws.com%2F2RNK1P0BYVrSCZEy_Sd1Ew%252F3417757448_4a6bdf36ce_o.jpg&width=910" alt="Nature Image 19" onclick="openModal(this)">
+    <img src="http://scutoidbox.wikidot.com/local--files/level-10/Level%2010.png" alt="Nature Image 20" onclick="openModal(this)">
+    <img src="https://live.staticflickr.com/7548/15753579259_ceefedfec0_b.jpg" alt="Nature Image 21" onclick="openModal(this)">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Lake_Towada_from_Ohanabe_2008.jpg" alt="Nature Image 22" onclick="openModal(this)">
+    <img src="http://ngfz.wikidot.com/local--files/tuchuang/%E6%B5%B7%E6%BB%A91" alt="Nature Image 23" onclick="openModal(this)">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Main_Street_in_Herndon%2C_Pennsylvania.JPG" alt="Nature Image 24" onclick="openModal(this)">
+    <img src="http://backrooms-sandbox-2.wikidot.com/local--files/collab:un-masked-sandbox/Rainforest" alt="Nature Image 25" onclick="openModal(this)">
+    <img src="http://backrooms-sandbox.wikidot.com/local--files/drchandra-s-sandbox/Adderwood.jpg" alt="Nature Image 26" onclick="openModal(this)">
+    <img src="http://backrooms-sandbox-2.wikidot.com/local--files/collab:un-masked-sandbox/Alpine%20desert" alt="Nature Image 27" onclick="openModal(this)">
+    <img src="http://backrooms-wiki.wdfiles.com/local--resized-images/level-10-2/haybale1/medium.jpg" alt="Nature Image 28" onclick="openModal(this)">
+    <img src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-souvenirpixels-417074.jpg&fm=jpg" alt="Nature Image 29" onclick="openModal(this)">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfR4QQrtWu-InVRIw8hP0NfIn6rPvyoVeLHKXwsiv9qkr4RQp-6p4W6HNdGxErkQuTN4U&usqp=CAU" alt="Nature Image 30" onclick="openModal(this)">
+    <img src="https://i0.wp.com/digital-photography-school.com/wp-content/uploads/2018/10/bluebells,_oxfordshire.jpg?fit=1500%2C1000&ssl=1" alt="Nature Image 31" onclick="openModal(this)">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd2PrnzfBNXJAd2MOSACylNBDQAphjojjO2w&s" alt="Nature Image 32" onclick="openModal(this)">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpF9WbcoTYjVg-WlWBV7FsHMaD-QC-j4OVpg&s" alt="Nature Image 33" onclick="openModal(this)">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3tat7BcxE4uFljbsgN564X2Jl766qwT0smg&s" alt="Nature Image 34" onclick="openModal(this)">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRG-_SkXUvce3Fa95PnIz94dyKNlyghFsz-Q&s" alt="Nature Image 35" onclick="openModal(this)">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3GexdXaNxGKC363NrdNNTXTdZ5vVnuCf-3w&s" alt="Nature Image 36" onclick="openModal(this)">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIJ156_WVxbcjJexB2G_M4F5VeE6tQ0BCaxA&s" alt="Nature Image 37" onclick="openModal(this)">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUWTxRA7IAIDPkiTYsZcftPYHWI2RvRflZqw&s" alt="Nature Image 38" onclick="openModal(this)">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSarQ9iCvsy_aNJvMwFJmWyWJE10sQyFrbJeQ&s" alt="Nature Image 39" onclick="openModal(this)">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBNCNvxV8Csq_RbQmfcv-I7bvaptBkvM2AIA&s" alt="Nature Image 40" onclick="openModal(this)">
+</div>
+
+<div id="modal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <div class="modal-content">
+        <img id="modal-img" src="" alt="Modal Image">
+    </div>
+</div>
+
+<script>
+function toggleLanguage() {
+    var langElements = document.querySelectorAll('[data-en], [data-ua]');
+    var langSwitch = document.querySelector('.language-switch');
+
+    if (langSwitch.textContent === 'EN | UA') {
+        langSwitch.textContent = 'UA | EN';
+        langElements.forEach(function(el) {
+            el.textContent = el.getAttribute('data-en');
+        });
+        document.documentElement.lang = 'en';
+    } else {
+        langSwitch.textContent = 'EN | UA';
+        langElements.forEach(function(el) {
+            el.textContent = el.getAttribute('data-ua');
+        });
+        document.documentElement.lang = 'ua';
+    }
+}
+
+function openModal(element) {
+    var modal = document.getElementById("modal");
+    var modalImg = document.getElementById("modal-img");
+    modal.style.display = "flex";
+    modalImg.src = element.src;
+}
+
+function closeModal() {
+    var modal = document.getElementById("modal");
+    modal.style.display = "none";
+}
+</script>
+
+</body>
+</html>

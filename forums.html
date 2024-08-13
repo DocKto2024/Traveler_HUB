@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-en="Traveler HUB Forums" data-ua="Traveler HUB Форуми">Traveler HUB Форуми</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg/1200px-Altja_j%C3%B5gi_Lahemaal.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+    }
+
+    .header {
+        width: 100%;
+        height: 60px;
+        background-color: rgba(128, 128, 128, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        left: 0;
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+    }
+
+    .profile {
+        display: flex;
+        align-items: center;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #fff;
+        overflow: hidden;
+        margin-right: 10px;
+    }
+
+    .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .nickname {
+        font-size: 1.2em;
+        color: #fff;
+    }
+
+    .main-buttons {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+    }
+
+    .main-buttons a {
+        margin: 0 10px;
+        padding: 10px 20px;
+        background-color: rgba(255, 255, 255, 0);
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .main-buttons a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .language-switch {
+        cursor: pointer;
+        color: #fff;
+        font-size: 1.2em;
+    }
+
+    .forum-section {
+        padding: 80px 20px 20px;
+        box-sizing: border-box;
+    }
+
+    .forum-post {
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .forum-post h3 {
+        color: #333;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .forum-post p {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .comment-section {
+        margin-top: 20px;
+        padding-top: 10px;
+        border-top: 1px solid #ccc;
+    }
+
+    .comment {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .comment p {
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    .comment img {
+        max-width: 100%;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+
+    .form-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    .form-container button {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+
+    .form-container button:hover {
+        background-color: #45a049;
+    }
+
+    .like-btn {
+        cursor: pointer;
+        color: #ccc;
+        transition: color 0.3s;
+        margin-right: 10px;
+    }
+
+    .like-btn.active {
+        color: #4CAF50;
+    }
+
+    .image-upload {
+        margin-top: 10px;
+        border: 1px dashed #ccc;
+        padding: 10px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .image-upload:hover {
+        border-color: #4CAF50;
+    }
+
+    .image-preview {
+        margin-top: 10px;
+        max-width: 100%;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div class="profile">
+        <div class="avatar">
+            <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar">
+        </div>
+        <div class="nickname" data-en="Nickname" data-ua="Нікнейм">Нікнейм</div>
+    </div>
+    <div class="main-buttons">
+        <a href="index.html" data-en="Home" data-ua="Головна">Головна</a>
+        <a href="aboutus.html" data-en="About Us" data-ua="Про нас">Про нас</a>
+        <a href="photogalerry.html" data-en="Photo Gallery" data-ua="Фотогалерея">Фотогалерея</a>
+        <a href="putivnik.html" data-en="Guide" data-ua="Путівник">Путівник</a>
+        <a href="forums.html" data-en="Forums" data-ua="Форуми">Форуми</a>
+        <a href="blogs.html" data-en="Checklists & Blogs" data-ua="Чек-листи та блоги">Чек-листи та блоги</a>
+    </div>
+    <div class="language-switch" onclick="toggleLanguage()">EN | UA</div>
+</div>
+
+<div class="forum-section" id="forumPosts">
+    <!-- Сюди будуть додаватись пости -->
+</div>
+
+<div class="form-container">
+    <h3 data-en="Create New Post" data-ua="Створити новий пост">Створити новий пост</h3>
+    <textarea id="postContent" placeholder="Напишіть свій пост тут..." data-en="Write your post here..." data-ua="Напишіть свій пост тут..."></textarea>
+    <div class="image-upload" onclick="uploadImage()" data-en="Click here to upload an image" data-ua="Натисніть тут, щоб завантажити зображення">Натисніть тут, щоб завантажити зображення</div>
+    <input type="file" id="imageInput" style="display: none;">
+    <div id="imagePreview" class="image-preview"></div>
+    <br>
+    <button onclick="addPost()" data-en="Submit" data-ua="Надіслати">Надіслати</button>
+</div>
+
+<script>
+// Початкові дані для демонстрації
+var forumData = [
+    { 
+        title_en: "First Post Title", 
+        title_ua: "Заголовок першого поста", 
+        content_en: "Content of the first post.", 
+        content_ua: "Вміст першого поста.",
+        comments: [],
+        likes: 0,
+        imageUrl: "",
+        author: {
+            nickname: "User1",
+            avatar: "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
+        }
+    },
+    {
+        title_en: "Second Post Title",
+        title_ua: "Заголовок другого поста",
+        content_en: "Content of the second post.",
+        content_ua: "Вміст другого поста.",
+        comments: [],
+        likes: 0,
+        imageUrl: "",
+        author: {
+            nickname: "User2",
+            avatar: "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
+        }
+    }
+];
+
+// Відображення постів
+function displayPosts() {
+    var forumSection = document.getElementById('forumPosts');
+    forumSection.innerHTML = '';
+
+    forumData.forEach(function(post, index) {
+        var postElement = document.createElement('div');
+        postElement.classList.add('forum-post');
+        postElement.innerHTML = `
+            <div class="post-header">
+                <div class="profile">
+                    <div class="avatar">
+                        <img src="${post.author.avatar}" alt="Avatar">
+                    </div>
+                    <div class="nickname">${post.author.nickname}</div>
+                </div>
+                <h3 data-en="${post.title_en}" data-ua="${post.title_ua}">${post.title_ua}</h3>
+                <p data-en="${post.content_en}" data-ua="${post.content_ua}">${post.content_ua}</p>
+                <img src="${post.imageUrl}" alt="Post Image">
+                <div class="like-btn" onclick="toggleLike(${index})" title="Like">&#x1F44D; <span>${post.likes}</span></div>
+                <div class="comment-section">
+                    <h4 data-en="Comments" data-ua="Коментарі">Коментарі</h4>
+                    <div id="comments-${index}"></div>
+                    <textarea id="comment-${index}" placeholder="Введіть ваш коментар..." data-en="Enter your comment..." data-ua="Введіть ваш коментар..."></textarea>
+                    <button onclick="addComment(${index})" data-en="Add Comment" data-ua="Додати коментар">Додати коментар</button>
+                </div>
+            </div>
+        `;
+
+        post.comments.forEach(function(comment) {
+            var commentElement = document.createElement('div');
+            commentElement.classList.add('comment');
+            commentElement.innerHTML = `<p>${comment}</p>`;
+            postElement.querySelector(`#comments-${index}`).appendChild(commentElement);
+        });
+
+        forumSection.appendChild(postElement);
+    });
+
+    updateLanguage();
+}
+
+// Додавання нового поста
+function addPost() {
+    var postContent = document.getElementById('postContent').value;
+    var imagePreview = document.getElementById('imagePreview').innerHTML;
+
+    if (postContent.trim() === '') {
+        alert('Будь ласка, введіть текст поста.');
+        return;
+    }
+
+    forumData.push({
+        title_en: "New Post Title",
+        title_ua: "Новий заголовок поста",
+        content_en: postContent,
+        content_ua: postContent,
+        comments: [],
+        likes: 0,
+        imageUrl: imagePreview || "https://via.placeholder.com/150",
+        author: {
+            nickname: "NewUser", // Нікнейм користувача який додав пост
+            avatar: "https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
+        }
+    });
+
+    displayPosts();
+    document.getElementById('postContent').value = '';
+    document.getElementById('imagePreview').innerHTML = '';
+}
+
+// Додавання коментаря
+function addComment(postIndex) {
+    var commentContent = document.getElementById(`comment-${postIndex}`).value;
+
+    if (commentContent.trim() === '') {
+        alert('Будь ласка, введіть текст коментаря.');
+        return;
+    }
+
+    forumData[postIndex].comments.push(commentContent);
+    displayPosts();
+    document.getElementById(`comment-${postIndex}`).value = '';
+}
+
+// Перемикання лайка
+function toggleLike(postIndex) {
+    var likeBtn = document.getElementsByClassName('like-btn')[postIndex];
+    var likeCount = forumData[postIndex].likes;
+
+    if (!likeBtn.classList.contains('active')) {
+        forumData[postIndex].likes = likeCount + 1;
+        likeBtn.classList.add('active');
+    } else {
+        forumData[postIndex].likes = likeCount - 1;
+        likeBtn.classList.remove('active');
+    }
+
+    likeBtn.getElementsByTagName('span')[0].innerText = forumData[postIndex].likes;
+}
+
+// Завантаження зображення
+function uploadImage() {
+    var input = document.getElementById('imageInput');
+    input.click();
+
+    input.addEventListener('change', function() {
+        var file = input.files[0];
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            var imagePreview = document.getElementById('imagePreview');
+            imagePreview.innerHTML = `<img src="${e.target.result}" alt="Uploaded Image" class="image-preview">`;
+        };
+
+        reader.readAsDataURL(file);
+    });
+}
+
+// Перемикання мови
+function toggleLanguage() {
+    var langSwitch = document.querySelector('.language-switch');
+
+    if (langSwitch.textContent === 'EN | UA') {
+        langSwitch.textContent = 'UA | EN';
+        document.documentElement.lang = 'en';
+    } else {
+        langSwitch.textContent = 'EN | UA';
+        document.documentElement.lang = 'ua';
+    }
+
+    updateLanguage();
+}
+
+// оновлення мови
+function updateLanguage() {
+    var lang = document.documentElement.lang;
+    var langElements = document.querySelectorAll('[data-en], [data-ua]');
+
+    langElements.forEach(function(el) {
+        el.textContent = el.getAttribute(`data-${lang}`);
+    });
+}
+
+displayPosts();
+</script>
+
+</body>
+</html>
+

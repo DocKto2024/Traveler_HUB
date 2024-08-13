@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Чек-листи та блоги</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg/1200px-Altja_j%C3%B5gi_Lahemaal.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+    }
+
+    .header {
+        width: 100%;
+        height: 60px;
+        background-color: rgba(128, 128, 128, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        left: 0;
+        backdrop-filter: blur(10px);
+        z-index: 1000;
+    }
+
+    .profile {
+        display: flex;
+        align-items: center;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #fff;
+        overflow: hidden;
+        margin-right: 10px;
+    }
+
+    .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .nickname {
+        font-size: 1.2em;
+        color: #fff;
+    }
+
+    .main-buttons {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+    }
+
+    .main-buttons a {
+        margin: 0 10px;
+        padding: 10px 20px;
+        background-color: rgba(255, 255, 255, 0);
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .main-buttons a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .language-switch {
+        cursor: pointer;
+        color: #fff;
+        font-size: 1.2em;
+    }
+
+    .content-section {
+        padding: 80px 20px 20px;
+        box-sizing: border-box;
+    }
+
+    .post {
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+
+    .post h3 {
+        color: #333;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    .post p {
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .button {
+        padding: 10px 15px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .button:hover {
+        background-color: #45a049;
+    }
+
+    .section-title {
+        font-size: 3em;
+        color: #ffffff;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .rickroll-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        opacity: 0.5;
+        z-index: 200;
+    }
+
+    .rickroll-button:hover {
+        opacity: 1;
+    }
+
+    .rickroll-icon {
+        width: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div class="header">
+    <div class="profile">
+        <div class="avatar">
+            <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar">
+        </div>
+        <div class="nickname" data-en="Nickname" data-ua="Нікнейм">Нікнейм</div>
+    </div>
+    <div class="main-buttons">
+        <a href="index.html" data-en="Home" data-ua="Головна">Головна</a>
+        <a href="aboutus.html" data-en="About Us" data-ua="Про нас">Про нас</a>
+        <a href="photogalerry.html" data-en="Photo Gallery" data-ua="Фотогалерея">Фотогалерея</a>
+        <a href="putivnik.html" data-en="Guide" data-ua="Путівник">Путівник</a>
+        <a href="forums.html" data-en="Forums" data-ua="Форуми">Форуми</a>
+        <a href="blogs.html" data-en="Checklists & Blogs" data-ua="Чек-листи та блоги">Чек-листи та блоги</a>
+    </div>
+    <div class="language-switch" onclick="toggleLanguage()">EN | UA</div>
+</div>
+
+<div class="content-section" id="contentContainer">
+    <div class="section">
+        <h2 class="section-title" data-en="Checklists" data-ua="Чек-листи">Чек-листи</h2>
+        <div id="checklistsContainer">
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title" data-en="Video Blogs" data-ua="Відео блоги">Відео блоги</h2>
+        <div id="videoBlogsContainer">
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title" data-en="Tips" data-ua="Поради">Поради</h2>
+        <div id="tipsContainer">
+        </div>
+    </div>
+</div>
+
+<button class="rickroll-button" onclick="window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'">
+    <img class="rickroll-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-GGyGxysAzfDQimkSG5WQZABIpa73zaetnA&s" alt="Rickroll">
+</button>
+
+<script>
+    var checklists = [
+        { 
+            title: { en: "Hiking Trip", ua: "Похід у гори" },
+            content: { en: "1. Check equipment\n2. Take enough water\n3. Determine the route", ua: "1. Перевірити спорядження\n2. Взяти достатньо води\n3. Визначити маршрут" }
+        },
+        { 
+            title: { en: "Beach Trip", ua: "Поїздка на море" },
+            content: { en: "1. Prepare swimsuit\n2. Take sunscreen\n3. Make hotel reservations", ua: "1. Підготувати купальний костюм\n2. Взяти сонцезахисний крем\n3. Зробити бронювання готелю" }
+        }
+    ];
+
+    var videoBlogs = [
+        { 
+            title: { en: "Adventures in the Carpathians", ua: "Пригоди у Карпатах" },
+            url: "https://www.youtube.com/embed/ULANywPmmVI" 
+        },
+        { 
+            title: { en: "How to Pack a Backpack for Hiking", ua: "Як зібрати рюкзак для походу" },
+            url: "https://www.youtube.com/embed/cMX9PzoJatY" 
+        }
+    ];
+
+    var tips = [
+        { 
+            title: { en: "What to take with you for a day in the mountains?", ua: "Що взяти з собою в гори на один день?" },
+            content: { en: "For a short one-day excursion, it is enough to have waterproof clothing, comfortable sports shoes, a water bottle, and an experienced guide you can trust.", ua: "Для короткого екскурсійного туру, розрахованого на один день, досить мати при собі водонепроникний одяг, зручну спортивне взуття, пляшку для води та досвідченого провідника, якому можна довіритися." }
+        },
+        { 
+            title: { en: "What to wear in the mountains?", ua: "Що одягати в гори?" },
+            content: { en: "The best option is sportswear. Replace the tank top with a t-shirt to avoid discomfort from the backpack. The backpack should be comfortable and spacious enough to fit all necessary items.", ua: "Найоптимальніший варіант - спортивний одяг. Майку краще замінити футболкою, щоб уникнути неприємних відчуттів через рюкзак. Рюкзак має бути зручним та містким, щоб місця всередині вистачило на всі необхідні речі." }
+        },
+        { 
+            title: { en: "What food to take with you on a hike?", ua: "Які продукти взяти з собою в похід?" },
+            content: { en: "It is best to take grains, bread or crackers, tea, salt, sugar, vegetable oil, spices, dry milk, coffee or cocoa, energy bars, sublimates, nuts and dried fruits on a hike.", ua: "Брати в похід з собою краще всього крупи, хлібці або сухарики, чай, сіль, цукор, рослинна олія, спеції, молоко сухе, кава або какао, енергетичні батончики, сублімати, горіхи і сухофрукти." }
+        }
+    ];
+
+    function displayChecklists() {
+        var checklistsContainer = document.getElementById('checklistsContainer');
+        checklistsContainer.innerHTML = '';
+
+        checklists.forEach(function(checklist) {
+            var checklistElement = document.createElement('div');
+            checklistElement.classList.add('post');
+            checklistElement.innerHTML = `
+                <h3 data-en="${checklist.title.en}" data-ua="${checklist.title.ua}">${checklist.title.ua}</h3>
+                <p data-en="${checklist.content.en}" data-ua="${checklist.content.ua}">${checklist.content.ua.replace(/\n/g, '<br>')}</p>
+            `;
+            checklistsContainer.appendChild(checklistElement);
+        });
+    }
+
+    function displayVideoBlogs() {
+        var videoBlogsContainer = document.getElementById('videoBlogsContainer');
+        videoBlogsContainer.innerHTML = '';
+
+        videoBlogs.forEach(function(blog) {
+            var blogElement = document.createElement('div');
+            blogElement.classList.add('post');
+            blogElement.innerHTML = `
+                <h3 data-en="${blog.title.en}" data-ua="${blog.title.ua}">${blog.title.ua}</h3>
+                <div class="video-container">
+                    <iframe class="video" src="${blog.url}" frameborder="0" allowfullscreen></iframe>
+                    <br>
+                    <a class="button" href="${blog.url.replace('embed/', 'watch?v=')}" target="_blank" data-en="Go to video" data-ua="Перейти на відео">Перейти на відео</a>
+                </div>
+            `;
+            videoBlogsContainer.appendChild(blogElement);
+        });
+    }
+
+    function displayTips() {
+        var tipsContainer = document.getElementById('tipsContainer');
+        tipsContainer.innerHTML = '';
+
+        tips.forEach(function(tip) {
+            var tipElement = document.createElement('div');
+            tipElement.classList.add('post');
+            tipElement.innerHTML = `
+                <h3 data-en="${tip.title.en}" data-ua="${tip.title.ua}">${tip.title.ua}</h3>
+                <p data-en="${tip.content.en}" data-ua="${tip.content.ua}">${tip.content.ua}</p>
+            `;
+            tipsContainer.appendChild(tipElement);
+        });
+    }
+
+    function toggleLanguage() {
+        var langElements = document.querySelectorAll('[data-en], [data-ua]');
+        var langSwitch = document.querySelector('.language-switch');
+
+        if (langSwitch.textContent === 'EN | UA') {
+            langSwitch.textContent = 'UA | EN';
+            langElements.forEach(function(el) {
+                el.textContent = el.getAttribute('data-en');
+            });
+            document.documentElement.lang = 'en';
+        } else {
+            langSwitch.textContent = 'EN | UA';
+            langElements.forEach(function(el) {
+                el.textContent = el.getAttribute('data-ua');
+            });
+            document.documentElement.lang = 'ua';
+        }
+    }
+
+    displayChecklists();
+    displayVideoBlogs();
+    displayTips();
+</script>
+
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Traveler HUB</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Altja_j%C3%B5gi_Lahemaal.jpg/1200px-Altja_j%C3%B5gi_Lahemaal.jpg");
+        background-size: cover;
+        background-position: center;
+        color: #ffffff;
+    }
+
+    .header {
+        width: 100%;
+        height: 60px;
+        background-color: rgba(128, 128, 128, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        left: 0;
+        backdrop-filter: blur(10px);
+    }
+
+    .profile {
+        display: flex;
+        align-items: center;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #fff;
+        overflow: hidden;
+        margin-right: 10px;
+    }
+
+    .avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .nickname {
+        font-size: 1.2em;
+        color: #fff;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .main-buttons {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+    }
+
+    .main-buttons a {
+        margin: 0 10px;
+        padding: 10px 20px;
+        background-color: rgba(255, 255, 255, 0);
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 5px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .main-buttons a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .language-switch {
+        cursor: pointer;
+        color: #fff;
+        font-size: 1.2em;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .content {
+        padding-top: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: calc(100vh - 60px);
+        justify-content: center;
+    }
+
+    .content p {
+        font-size: 1.5em;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+        margin: 0 20px;
+    }
+
+    .content h1 {
+        font-size: 3.5em;
+        margin-bottom: 20px;
+    }
+
+    .THUB-text {
+        position: fixed;
+        bottom: 50px;
+        right: 50px;
+        font-size: 8em;
+        color: #ffffff;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 8px;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+</style>
+<script>
+function toggleLanguage() {
+    var langElements = document.querySelectorAll('[data-en], [data-ua]');
+    var langSwitch = document.querySelector('.language-switch');
+
+    if (langSwitch.textContent === 'EN | UA') {
+        langSwitch.textContent = 'UA | EN';
+        langElements.forEach(function(el) {
+            el.textContent = el.getAttribute('data-en');
+        });
+        document.documentElement.lang = 'en';
+    } else {
+        langSwitch.textContent = 'EN | UA';
+        langElements.forEach(function(el) {
+            el.textContent = el.getAttribute('data-ua');
+        });
+        document.documentElement.lang = 'ua';
+    }
+}
+</script>
+</head>
+<body>
+
+<div class="header">
+    <div class="profile">
+        <div class="avatar">
+            <img src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg" alt="Avatar">
+        </div>
+        <div class="nickname" data-en="Nickname" data-ua="Никнейм">Никнейм</div>
+    </div>
+    <div class="main-buttons">
+        <a href="index.html" data-en="Home" data-ua="Головна">Головна</a>
+        <a href="aboutus.html" data-en="About Us" data-ua="Про нас">Про нас</a>
+        <a href="photogalerry.html" data-en="Photo Gallery" data-ua="Фотогалерея">Фотогалерея</a>
+        <a href="putivnik.html" data-en="Guide" data-ua="Путівник">Путівник</a>
+        <a href="forums.html" data-en="Forums" data-ua="Форуми">Форуми</a>
+        <a href="blogs.html" data-en="Checklists & Blogs" data-ua="Чек-листи та блоги">Чек-листи та блоги</a>
+    </div>
+    <div class="language-switch" onclick="toggleLanguage()">EN | UA</div>
+</div>
+
+<div class="content">
+    <h1 data-en="Traveler HUB" data-ua="Traveler HUB">Traveler HUB</h1>
+    <p data-en="Welcome to Traveler HUB! Your ultimate destination for all things travel. Explore guides, checklists, photo galleries, and join our forums to share your adventures and tips with fellow travelers." 
+       data-ua="Ласкаво просимо до Traveler HUB! Ваше остаточне місце призначення для всього, що пов’язано з подорожами. Досліджуйте путівники, чек-листи, фотогалереї та приєднуйтесь до наших форумів, щоб ділитися своїми пригодами та порадами з іншими мандрівниками.">
+       Ласкаво просимо до Traveler HUB! Ваше остаточне місце призначення для всього, що пов’язано з подорожами. Досліджуйте путівники, чек-листи, фотогалереї та приєднуйтесь до наших форумів, щоб ділитися своїми пригодами та порадами з іншими мандрівниками.
+    </p>
+</div>
+
+<div class="THUB-text" data-en="Traveler HUB" data-ua="Traveler HUB">Traveler HUB</div>
+
+</body>
+</html>
